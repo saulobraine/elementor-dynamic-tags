@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Tags
+ * Tag Dinâmicas Customizadas
  *
- * @package       Tags Dinâmicas
+ * @package       Tag Dinâmicas Customizadas
  * @author        Braine.dev
  *
  * @wordpress-plugin
- * Plugin Name:   Tag Dinâmicas
+ * Plugin Name:   Tag Dinâmicas Customizadas
  * Description:   Adiciona Tags ao site
  * Version:       1.0.0
  * Author:        Braine.dev
@@ -45,17 +45,21 @@ add_action('elementor/dynamic_tags/register', 'register_site_dynamic_tag_group')
  * @param \Elementor\Core\DynamicTags\Manager $dynamic_tags_manager Elementor dynamic tags manager.
  * @return void
  */
-function register_acf_group_image($dynamic_tags_manager) {
-    require_once __DIR__ . '/dynamic-tags/acf-group-image.php';
-    require_once __DIR__ . '/dynamic-tags/acf-group-text.php';
-    require_once __DIR__ . '/dynamic-tags/acf-group-url.php';
-    require_once __DIR__ . '/dynamic-tags/acf-group-number-divider.php';
-    require_once __DIR__ . '/dynamic-tags/acf-group-number-difference.php';
+function register_custom__dynamic_tags_braine($dynamic_tags_manager) {
+    require_once __DIR__ . '/dynamic-tags/acf/acf-group-image.php';
+    require_once __DIR__ . '/dynamic-tags/acf/acf-group-text.php';
+    require_once __DIR__ . '/dynamic-tags/acf/acf-group-url.php';
+    require_once __DIR__ . '/dynamic-tags/acf/acf-group-number-divider.php';
+    require_once __DIR__ . '/dynamic-tags/acf/acf-group-number-difference.php';
+
+    require_once __DIR__ . '/dynamic-tags/post-content.php';
 
     $dynamic_tags_manager->register(new \ACFGroupImage());
     $dynamic_tags_manager->register(new \ACFGroupText());
     $dynamic_tags_manager->register(new \ACFGroupURL());
     $dynamic_tags_manager->register(new \ACFGroupNumberDivider());
     $dynamic_tags_manager->register(new \ACFGroupNumberDifference());
+    $dynamic_tags_manager->register(new \PostContentBraine());
 }
-add_action('elementor/dynamic_tags/register', 'register_acf_group_image');
+
+add_action('elementor/dynamic_tags/register', 'register_custom__dynamic_tags_braine');
