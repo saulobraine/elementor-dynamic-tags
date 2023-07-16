@@ -3,7 +3,6 @@
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
-
 class PostContentBraine extends \ElementorPro\Modules\DynamicTags\Tags\Base\Data_Tag {
     public function get_name() {
         return 'post-content-braine';
@@ -26,8 +25,6 @@ class PostContentBraine extends \ElementorPro\Modules\DynamicTags\Tags\Base\Data
     }
 
     public function get_value(array $options = []) {
-        $settings = $this->get_settings();
-
         return get_the_content();
     }
 
