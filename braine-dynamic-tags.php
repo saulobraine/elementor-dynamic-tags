@@ -9,7 +9,7 @@
  * @wordpress-plugin
  * Plugin Name:   Tag Dinâmicas Customizadas
  * Description:   Adiciona Tags ao site
- * Version:       1.0.0
+ * Version:       1.1
  * Author:        Braine.dev
  * Author URI:    https://braine.dev
  */
@@ -48,6 +48,7 @@ add_action('elementor/dynamic_tags/register', 'register_site_dynamic_tag_group')
 function register_custom__dynamic_tags_braine($dynamic_tags_manager) {
     require_once __DIR__ . '/dynamic-tags/acf/acf-group-image.php';
     require_once __DIR__ . '/dynamic-tags/acf/acf-group-text.php';
+    require_once __DIR__ . '/dynamic-tags/acf/acf-url.php';
     require_once __DIR__ . '/dynamic-tags/acf/acf-group-url.php';
     require_once __DIR__ . '/dynamic-tags/acf/acf-group-number-divider.php';
     require_once __DIR__ . '/dynamic-tags/acf/acf-group-number-difference.php';
@@ -56,6 +57,7 @@ function register_custom__dynamic_tags_braine($dynamic_tags_manager) {
 
     $dynamic_tags_manager->register(new \ACFGroupImage());
     $dynamic_tags_manager->register(new \ACFGroupText());
+    $dynamic_tags_manager->register(new \ACFURL());
     $dynamic_tags_manager->register(new \ACFGroupURL());
     $dynamic_tags_manager->register(new \ACFGroupNumberDivider());
     $dynamic_tags_manager->register(new \ACFGroupNumberDifference());
