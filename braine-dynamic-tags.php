@@ -54,6 +54,7 @@ function register_custom__dynamic_tags_braine($dynamic_tags_manager) {
     require_once __DIR__ . '/dynamic-tags/acf/acf-group-number-difference.php';
 
     require_once __DIR__ . '/dynamic-tags/post-content.php';
+    require_once __DIR__ . '/dynamic-tags/page-anchor.php';
 
     $dynamic_tags_manager->register(new \ACFGroupImage());
     $dynamic_tags_manager->register(new \ACFGroupText());
@@ -62,6 +63,7 @@ function register_custom__dynamic_tags_braine($dynamic_tags_manager) {
     $dynamic_tags_manager->register(new \ACFGroupNumberDivider());
     $dynamic_tags_manager->register(new \ACFGroupNumberDifference());
     $dynamic_tags_manager->register(new \PostContentBraine());
+    $dynamic_tags_manager->register(new \PageAnchorBraine());
 }
 
 add_action('elementor/dynamic_tags/register', 'register_custom__dynamic_tags_braine');
